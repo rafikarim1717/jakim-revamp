@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Wireframe Fase 1 – JAKIM Revamp</title>
+<style>
+  :root { --ink:#1b1b1b; --g1:#f4f4f4; --g2:#e3e3e3; --g3:#c9c9c9; --g4:#8a8a8a; --note:#d6336c; --cta:#1b1b1b; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Inter, system-ui, Arial, sans-serif; background:#fafafa; color:var(--ink); padding:32px; }
+  h1.page { font-size:22px; margin-bottom:4px; }
+  p.sub { color:var(--g4); font-size:13px; margin-bottom:24px; }
+  .row { display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap; }
+  .col { width:375px; }
+  .label { font-weight:800; font-size:14px; margin-bottom:8px; }
+  .label span { color:var(--g4); font-weight:500; }
+  .phone { width:375px; background:#fff; border:2px solid var(--ink); border-radius:28px; overflow:hidden; position:relative; }
+  .sec { position:relative; padding:20px 16px; border-bottom:1px dashed var(--g3); }
+  .tag { position:absolute; top:6px; right:8px; font-size:10px; font-weight:800; color:var(--g4); letter-spacing:.08em; text-transform:uppercase; }
+  .n { position:absolute; left:6px; top:6px; z-index:2; width:22px; height:22px; border-radius:50%; background:var(--note); color:#fff; font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .wrap { position:relative; margin-left:30px; }
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:var(--ink); color:#fff; }
+  .logo { width:110px; height:26px; background:#555; border-radius:2px; font-size:9px; display:flex; align-items:center; justify-content:center; color:#ddd; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 18px; font-weight:800; font-size:15px; border:2px solid var(--ink); }
+  .btn.p { background:var(--cta); color:#fff; }
+  .btn.s { background:#fff; }
+  .btn.sm { min-height:34px; font-size:12px; padding:0 12px; }
+  .btn.dis { background:var(--g2); color:var(--g4); border-color:var(--g3); }
+  .btn.w { width:100%; }
+  .img { background:repeating-linear-gradient(45deg,var(--g2),var(--g2) 8px,var(--g1) 8px,var(--g1) 16px); border:1px solid var(--g3); display:flex; align-items:center; justify-content:center; color:var(--g4); font-size:11px; font-weight:700; }
+  .h1 { font-family: Impact, "Arial Narrow", sans-serif; font-size:38px; line-height:.95; letter-spacing:.01em; text-transform:uppercase; }
+  .h2 { font-family: Impact, "Arial Narrow", sans-serif; font-size:30px; line-height:1; text-transform:uppercase; margin-bottom:12px; }
+  .eye { font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--g4); margin-bottom:6px; }
+  .chip { display:inline-flex; gap:6px; align-items:center; font-size:12px; font-weight:700; padding:6px 10px; border:1.5px solid var(--ink); background:#fff; }
+  .dot { width:8px; height:8px; border-radius:50%; background:var(--ink); }
+  .badge { font-size:10px; font-weight:900; letter-spacing:.08em; padding:4px 8px; border:1.5px solid var(--ink); }
+  .badge.open { background:var(--ink); color:#fff; }
+  .badge.sold { background:var(--g2); color:var(--g4); border-color:var(--g3); }
+  .card { border:1.5px solid var(--ink); padding:14px; margin-bottom:10px; background:#fff; }
+  .card.sold { border-color:var(--g3); color:var(--g4); }
+  .card .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+  .big { font-family: Impact, "Arial Narrow", sans-serif; font-size:30px; line-height:1; }
+  .meta { font-size:12px; color:var(--g4); margin-bottom:10px; }
+  .price { display:flex; gap:14px; font-size:12px; }
+  .price b { display:block; font-size:18px; color:var(--ink); }
+  .card.sold .price b { color:var(--g4); text-decoration:line-through; }
+  .facts { display:flex; gap:12px; font-size:11px; margin-top:10px; padding-top:10px; border-top:1px solid var(--g2); color:var(--g4); }
+  .toggle { display:flex; border:1.5px solid var(--ink); margin-bottom:12px; }
+  .toggle div { flex:1; text-align:center; padding:10px; font-size:13px; font-weight:800; }
+  .toggle .on { background:var(--ink); color:#fff; }
+  .small { font-size:12px; color:var(--g4); }
+  .link { font-size:13px; font-weight:800; text-decoration:underline; }
+  .warn { border:2px solid var(--ink); background:var(--g1); padding:10px 12px; font-size:12px; font-weight:700; margin-top:8px; }
+  .step { display:flex; gap:12px; margin-bottom:12px; }
+  .step .num { width:28px; height:28px; flex:none; border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:13px; }
+  .step b { font-size:14px; } .step p { font-size:12px; color:var(--g4); }
+  .cd { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; text-align:center; }
+  .cd div { border:1.5px solid var(--ink); padding:8px 0; } .cd b { font-family:Impact,sans-serif; font-size:24px; display:block; } .cd span { font-size:9px; font-weight:800; color:var(--g4); }
+  .stats { display:flex; justify-content:space-between; margin-top:14px; text-align:center; font-size:10px; color:var(--g4); font-weight:700; }
+  .stats b { display:block; font-family:Impact,sans-serif; font-size:22px; color:var(--ink); }
+  .acc { border-top:1px solid var(--g3); padding:12px 0; font-size:13px; font-weight:700; display:flex; justify-content:space-between; }
+  .sticky { position:sticky; bottom:0; background:#fff; border-top:2px solid var(--ink); padding:10px 16px; display:flex; gap:10px; align-items:center; }
+  .foot { background:var(--ink); color:#bbb; padding:20px 16px; font-size:11px; line-height:1.7; }
+  .foot b { color:#fff; }
+  .timeline { display:flex; gap:4px; margin:10px 0 4px; }
+  .timeline div { flex:1; border:1.5px solid var(--ink); padding:8px 6px; font-size:10px; font-weight:800; }
+  .timeline .now { background:var(--ink); color:#fff; }
+  .day { border:1.5px solid var(--ink); padding:14px; margin-bottom:10px; }
+  .day.sold { border-color:var(--g3); background:var(--g1); }
+  table { width:100%; border-collapse:collapse; font-size:11px; }
+  th, td { border:1px solid var(--g3); padding:6px 5px; text-align:left; }
+  th { background:var(--g1); font-size:10px; }
+  td.so { color:var(--g4); text-decoration:line-through; }
+  .check { font-size:12px; margin-bottom:8px; display:flex; gap:8px; }
+  .menu { padding:16px; }
+  .menu .m { font-family:Impact,sans-serif; font-size:24px; padding:8px 0; border-bottom:1px solid var(--g2); }
+  .menu .grp { margin-top:14px; font-size:11px; font-weight:800; color:var(--g4); letter-spacing:.1em; }
+  .menu .tba { display:flex; justify-content:space-between; font-size:13px; color:var(--g4); padding:6px 0; }
+  .menu .tba i { font-style:normal; font-size:9px; font-weight:800; border:1px solid var(--g3); padding:2px 6px; }
+  .notes { width:300px; font-size:12px; line-height:1.5; }
+  .notes h3 { font-size:13px; margin:14px 0 6px; }
+  .notes li { margin-left:16px; margin-bottom:4px; }
+  .notes .k { display:inline-flex; width:18px; height:18px; border-radius:50%; background:var(--note); color:#fff; font-size:10px; font-weight:800; align-items:center; justify-content:center; margin-right:4px; }
+  .phone.old { border-style:dashed; }
+  .pair { display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap; margin-bottom:56px; }
+  .rowtitle { font-size:18px; font-weight:900; margin:8px 0 14px; padding-top:20px; border-top:3px solid var(--ink); }
+  .vs { align-self:center; font-family:Impact,sans-serif; font-size:40px; color:var(--g3); }
+</style>
+</head>
+<body>
+<h1 class="page">Wireframe Fase 1: LAMA vs BARU (HP 375px)</h1>
+<p class="sub">Low-fi, grayscale. Fokus ke struktur dan urutan info, belum ke warna/visual. Kiri = struktur website asli (as-is, garis putus-putus). Kanan = usulan revamp (to-be). Huruf/angka merah merujuk ke catatan & temuan di 01-REVIEW.</p>
+
+<div class="rowtitle">1 · HOME</div>
+<div class="pair">
+<div class="col">
+  <div class="label">LAMA · Home <span>(as-is, jakim.id di HP)</span></div>
+  <div class="wrap"><div class="phone old">
+    <div class="nav"><div style="font-size:20px">☰</div><div class="logo">LOGO</div><div style="display:flex;gap:4px;align-items:center"><div class="btn sm" style="background:#fff;color:#111;min-height:24px;font-size:8px;padding:0 6px">Register Now</div><span style="font-size:10px">🇮🇩🇬🇧</span></div></div>
+    <div class="sec"><div class="n">A</div><span class="tag">Hero</span>
+      <div class="img" style="height:300px">KOLASE VIDEO AUTOPLAY<br>(3 klip, "are you ready?")</div>
+      <p class="small" style="margin-top:8px">Layar pertama: tanpa judul, tanggal, harga, atau CTA besar. Satu-satunya CTA = tombol 11px di header.</p>
+    </div>
+    <div class="sec"><span class="tag">Judul + countdown</span>
+      <div class="h2" style="font-size:24px">Run with Jakarta.</div>
+      <p class="small">Are you ready for the ultimate race weekend experience? · 12–13 June 2027 · Monas–GBK</p>
+      <div class="cd" style="margin-top:8px"><div><b>216</b><span>DAYS</span></div><div><b>10</b><span>HOURS</span></div><div><b>12</b><span>MIN</span></div><div><b>46</b><span>SEC</span></div></div>
+    </div>
+    <div class="sec"><span class="tag">Story</span><div class="img" style="height:90px">"Not just a race, it's a weekend celebration." + ornamen</div></div>
+    <div class="sec"><span class="tag">Stats</span><div class="stats" style="flex-direction:column;gap:6px"><div><b>15.000+</b>RUNNERS 2024</div><div><b>30.000+</b>RUNNERS 2025</div><div><b>45.000+</b>RUNNERS 2026</div></div></div>
+    <div class="sec"><span class="tag">Marquee</span><p class="small">"12–13 JUNE 2027. MONAS–GBK. JUST RUN IT." × 8 (berjalan)</p></div>
+    <div class="sec"><span class="tag">Memory lane</span><div class="img" style="height:110px;margin-bottom:6px">JAKIM 2024 · View gallery</div><div class="img" style="height:110px;margin-bottom:6px">JAKIM 2025 · View gallery</div><div class="img" style="height:110px">JAKIM 2026 · View gallery</div></div>
+    <div class="sec"><span class="tag">Results</span><div class="card" style="padding:8px">View result 2024</div><div class="card" style="padding:8px">View result 2025</div><div class="card" style="padding:8px">View result 2026</div></div>
+    <div class="sec"><div class="n">B</div><span class="tag">Kategori</span>
+      <div class="h2" style="font-size:24px">Just run it.</div>
+      <div style="display:flex;gap:8px;overflow:hidden"><div class="img" style="height:220px;min-width:250px;flex-direction:column">01 / FM · 42,195 KM<br><br>[Ticket price details]</div><div class="img" style="height:220px;min-width:100px">02 / HM →</div></div>
+      <p class="small" style="margin-top:8px">Carousel geser: 1 kategori per layar. Harga baru muncul di modal setelah klik. Tidak ada badge SOLD OUT untuk 5K/10K.</p>
+    </div>
+    <div class="sec"><span class="tag">Social hub</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px"><div class="img" style="height:80px">IG</div><div class="img" style="height:80px">IG</div><div class="img" style="height:80px">IG</div><div class="img" style="height:80px">IG</div></div></div>
+    <div class="sec"><span class="tag">Sponsor</span><div class="img" style="height:60px">Presented by · Organized by</div></div>
+    <div class="sec" style="text-align:center"><span class="tag">CTA</span><div class="h2" style="font-size:22px">See you on 12–13 June 2027</div><div class="btn p w">REGISTER NOW</div></div>
+    <div class="foot">Contact us · Connect with us</div>
+  </div></div>
+</div>
+<div class="vs">→</div>
+<div class="col">
+  <div class="label">BARU · Home <span>(to-be)</span></div>
+  <div class="wrap"><div class="phone">
+    <div class="nav"><div class="logo">LOGO JAKIM 2027</div><div style="display:flex;gap:8px;align-items:center"><div class="btn sm" style="background:#fff;color:#111">DAFTAR</div><div style="font-size:20px">☰</div></div></div>
+
+    <div class="sec"><div class="n">1</div><span class="tag">Hero</span>
+      <div class="img" style="height:120px;margin-bottom:14px">1 FOTO WEBP (bukan video)</div>
+      <div class="eye">HUT Jakarta ke-500</div>
+      <div class="h1">Jakarta<br>International<br>Marathon 2027</div>
+      <p style="font-size:14px;font-weight:700;margin:10px 0">12–13 Juni 2027 · Monas → GBK</p>
+      <div class="chip" style="margin-bottom:6px"><span class="dot"></span>Early bird HM & Marathon dibuka</div><br>
+      <div class="chip" style="margin-bottom:14px;color:var(--g4);border-color:var(--g3)">5K & 10K sudah habis</div>
+      <div class="btn p w">DAFTAR HALF / MARATHON</div>
+      <p style="text-align:center;margin-top:10px"><span class="link">Lihat semua harga ↓</span></p>
+    </div>
+
+    <div class="sec"><div class="n">2</div><span class="tag">Status & harga</span>
+      <div class="h2">Pilih jarakmu</div>
+      <div class="toggle"><div class="on">WNI</div><div>WNA</div></div>
+      <div class="card"><div class="top"><span class="big">Marathon</span><span class="badge open">BUKA</span></div>
+        <div class="meta">42,195 km · Minggu, 13 Jun</div>
+        <div class="price"><div>Early bird<b>Rp750.000</b></div><div>General<b>Rp1.000.000</b></div></div>
+        <div class="facts"><span>COT 7 jam</span><span>Min. 17 th</span><span>Start 04.00</span></div></div>
+      <div class="card"><div class="top"><span class="big">Half Marathon</span><span class="badge open">BUKA</span></div>
+        <div class="meta">21,0975 km · Minggu, 13 Jun</div>
+        <div class="price"><div>Early bird<b>Rp637.500</b></div><div>General<b>Rp850.000</b></div></div>
+        <div class="facts"><span>COT 3,5 jam</span><span>Min. 17 th</span><span>Start 04.00</span></div></div>
+      <div class="card sold"><div class="top"><span class="big">10K</span><span class="badge sold">SOLD OUT</span></div>
+        <div class="meta">10 km · Sabtu, 12 Jun</div>
+        <div class="price"><div>Early bird<b>Rp487.500</b></div><div>General<b>Rp650.000</b></div></div></div>
+      <div class="card sold"><div class="top"><span class="big">5K</span><span class="badge sold">SOLD OUT</span></div>
+        <div class="meta">5 km · Sabtu, 12 Jun</div>
+        <div class="price"><div>Early bird<b>Rp375.000</b></div><div>General<b>Rp500.000</b></div></div></div>
+      <p class="small">WNA (Open) khusus HM & Marathon, dibuka 1–31 Des 2026. · <span class="link">Kategori Master 40+ →</span></p>
+    </div>
+
+    <div class="sec"><div class="n">3</div><span class="tag">Cara daftar</span>
+      <div class="h2">Daftar dalam 3 langkah</div>
+      <div class="step"><div class="num">1</div><div><b>Pilih jarak</b><p>Klik Daftar, pilih HM atau Marathon.</p></div></div>
+      <div class="step"><div class="num">2</div><div><b>Isi data</b><p>Lewat Sporticx, partner tiket resmi.</p></div></div>
+      <div class="step"><div class="num">3</div><div><b>Bayar & cek email</b><p>Konfirmasi masuk ke email.</p></div></div>
+      <div class="warn">⚠ Isi data cuma dikasih waktu 7 menit. Siapkan data diri dulu.</div>
+      <p style="margin-top:10px"><span class="link">Lihat langkah lengkap →</span></p>
+    </div>
+
+    <div class="sec"><div class="n">4</div><span class="tag">Countdown + bukti</span>
+      <div class="eye">Menuju garis start</div>
+      <div class="cd"><div><b>216</b><span>HARI</span></div><div><b>10</b><span>JAM</span></div><div><b>12</b><span>MENIT</span></div><div><b>46</b><span>DETIK</span></div></div>
+      <div class="stats"><div><b>12rb</b>2023</div><div><b>15rb</b>2024</div><div><b>30rb</b>2025</div><div><b>45rb</b>2026</div></div>
+    </div>
+
+    <div class="sec"><span class="tag">Memory lane</span>
+      <div class="h2">3 tahun, 90rb pelari</div>
+      <div style="display:flex;gap:8px;overflow:hidden"><div class="img" style="height:130px;min-width:150px">2026</div><div class="img" style="height:130px;min-width:150px">2025</div><div class="img" style="height:130px;min-width:150px">2024</div></div>
+      <p style="margin-top:10px"><span class="link">Galeri & hasil lomba →</span></p>
+    </div>
+
+    <div class="sec"><div class="n">5</div><span class="tag">FAQ singkat</span>
+      <div class="h2">Yang sering ditanya</div>
+      <div class="acc">Bedanya WNI (National) & WNA (Open)? <span>+</span></div>
+      <div class="acc">Kapan general registration dibuka? <span>+</span></div>
+      <div class="acc">Race pack diambil di mana? <span>+</span></div>
+      <div class="acc">Batas umur minimal? <span>+</span></div>
+      <div class="acc">Jam berapa start? <span>+</span></div>
+      <p style="margin-top:6px"><span class="link">Semua FAQ →</span></p>
+    </div>
+
+    <div class="sec" style="text-align:center"><span class="tag">CTA penutup</span>
+      <div class="h2">Sampai ketemu di garis start</div>
+      <p class="small" style="margin-bottom:12px">12–13 Juni 2027 · Monas → GBK</p>
+      <div class="btn p w">DAFTAR SEKARANG</div>
+    </div>
+
+    <div class="foot"><b>Customer Service</b> WA +62 857-1756-2728 · Sen–Jum 09.00–18.00<br>info@jakim.id · IG @jakartainternationalmarathon<br><br>Presented by Jakarta · 5 Abad Jakarta · Organized by IMRR<br><br>Data per 7 Nov 2026 · Konsep revamp tidak resmi, tidak berafiliasi dengan JAKIM/IMRR</div>
+
+    <div class="sticky"><div class="n" style="left:6px;top:-11px">6</div><div style="flex:1;font-size:11px;line-height:1.3"><b style="font-size:13px">HM & Marathon</b><br><span class="small">mulai Rp637.500</span></div><div class="btn p sm" style="min-height:44px">DAFTAR</div></div>
+  </div></div>
+</div>
+
+<div class="notes">
+  <div class="label">Masalah versi lama</div>
+  <ol style="list-style:none">
+    <li><span class="k">A</span>Layar pertama cuma video. Judul & tanggal baru muncul setelah scroll (U1).</li>
+    <li><span class="k">B</span>Kategori = carousel, harga di modal, 5K/10K tidak ditandai habis (F1, F2, U2).</li>
+    <li><span class="k">C</span>Cara daftar berupa gambar, info "7 menit" tidak terbaca (F4, F9).</li>
+    <li><span class="k">D</span>Menu ±37 item, 28 TBA tercampur dengan yang aktif (F6, IA1).</li>
+  </ol>
+  <h3>Urutan info penting</h3>
+  <ul>
+    <li><b>Lama:</b> harga = section ke-9, butuh klik + modal.</li>
+    <li><b>Baru:</b> harga = section ke-2, langsung terlihat.</li>
+  </ul>
+</div>
+</div>
+<div class="rowtitle">2 · HALAMAN DAFTAR</div>
+<div class="pair">
+<div class="col">
+  <div class="label">LAMA · Registration <span>(as-is)</span></div>
+  <div class="wrap"><div class="phone old">
+    <div class="nav"><div style="font-size:20px">☰</div><div class="logo">LOGO</div><div class="btn sm" style="background:#fff;color:#111;min-height:24px;font-size:8px;padding:0 6px">Register Now</div></div>
+    <div class="sec" style="background:var(--g1)"><span class="tag">Header</span><div class="eye">JAKIM 2027 Registration</div><div class="h1" style="font-size:34px">Lock your slot</div></div>
+    <div class="sec" style="background:var(--g1)"><span class="tag">Day 1</span><div class="day sold"><div class="eye">Race registration</div><div class="big">Day 1</div><p class="small">Saturday, 12 June 2027 · 5K & 10K (National)</p><div class="btn dis w" style="margin-top:8px">Sold Out</div><div class="btn p w" style="margin-top:6px;font-size:12px">Registration Check Day-1</div></div></div>
+    <div class="sec" style="background:var(--g1)"><span class="tag">Day 2</span><div class="day" style="background:#fff"><div class="eye">Race registration</div><div class="big">Day 2</div><p class="small">Sunday, 13 June 2027 · HM & Marathon (National & Open)</p><div class="btn p w" style="margin-top:8px">Register Now</div><div class="btn s w" style="margin-top:6px;font-size:12px">Registration Check Day-2</div></div></div>
+    <div class="sec" style="background:var(--g1)"><div class="n">C</div><span class="tag">How to register</span><div class="h2" style="font-size:22px">How to register</div><div class="img" style="height:120px">GAMBAR 1920×1080<br>(5 langkah + "7 menit"<br>tidak terbaca di HP)</div><p class="small" style="margin-top:6px">Tombol zoom + / − / ↺</p></div>
+    <div class="sec" style="background:var(--g1)"><p class="small">Tidak ada harga, tidak ada penjelasan National/Open, tidak ada info Sporticx.</p></div>
+    <div class="foot">Footer</div>
+  </div></div>
+</div>
+<div class="vs">→</div>
+<div class="col">
+  <div class="label">BARU · Daftar <span>(to-be)</span></div>
+  <div class="wrap"><div class="phone">
+    <div class="nav"><div class="logo">LOGO JAKIM 2027</div><div style="font-size:20px">☰</div></div>
+
+    <div class="sec"><div class="n">7</div><span class="tag">Header + fase</span>
+      <div class="eye">Pendaftaran JAKIM 2027</div>
+      <div class="h1" style="font-size:40px">Amankan slotmu</div>
+      <div class="timeline"><div class="now">EARLY BIRD<br><span style="font-weight:500">Buka sejak 5 Nov</span></div><div>GENERAL<br><span style="font-weight:500">Setelah early bird habis</span></div><div>WNA<br><span style="font-weight:500">1–31 Des</span></div></div>
+    </div>
+
+    <div class="sec"><div class="n">8</div><span class="tag">Pilih hari</span>
+      <div class="day"><div class="top" style="display:flex;justify-content:space-between"><span class="eye">Day 2 · Minggu, 13 Jun</span><span class="badge open">BUKA</span></div>
+        <div class="big" style="margin:6px 0">Half Marathon & Marathon</div>
+        <p class="small" style="margin-bottom:12px">WNI (National). WNA dibuka 1–31 Des.</p>
+        <div class="btn p w">DAFTAR DI SPORTICX ↗</div>
+        <p style="text-align:center;margin-top:8px"><span class="link">Cek status pendaftaran</span></p></div>
+      <div class="day sold"><div class="top" style="display:flex;justify-content:space-between"><span class="eye">Day 1 · Sabtu, 12 Jun</span><span class="badge sold">SOLD OUT</span></div>
+        <div class="big" style="margin:6px 0;color:var(--g4)">5K & 10K</div>
+        <div class="btn dis w">SLOT HABIS</div>
+        <p style="text-align:center;margin-top:8px"><span class="link">Cek status pendaftaran</span></p></div>
+    </div>
+
+    <div class="sec"><div class="n">9</div><span class="tag">Harga lengkap</span>
+      <div class="h2">Harga tiket</div>
+      <table>
+        <tr><th>Kategori</th><th>Early bird</th><th>General WNI</th><th>General WNA</th></tr>
+        <tr><td><b>Marathon</b></td><td>750.000</td><td>1.000.000</td><td>1.814.900</td></tr>
+        <tr><td><b>Half</b></td><td>637.500</td><td>850.000</td><td>1.270.430</td></tr>
+        <tr><td><b>10K</b></td><td class="so">487.500</td><td class="so">650.000</td><td>–</td></tr>
+        <tr><td><b>5K</b></td><td class="so">375.000</td><td class="so">500.000</td><td>–</td></tr>
+      </table>
+      <p class="small" style="margin-top:8px">Early bird HM & Marathon khusus WNI. Ada kategori Master: 10K 40–49 / 50+, HM & Marathon 45+.</p>
+    </div>
+
+    <div class="sec"><div class="n">10</div><span class="tag">Cara daftar lengkap</span>
+      <div class="h2">5 langkah daftar</div>
+      <div class="step"><div class="num">1</div><div><b>Pilih hari & jarak</b><p>Klik Daftar di halaman ini.</p></div></div>
+      <div class="step"><div class="num">2</div><div><b>Pilih kategori</b><p>Di Sporticx, pilih kategori lalu klik Buy Ticket.</p></div></div>
+      <div class="step"><div class="num">3</div><div><b>Isi data diri</b><p>Isi dengan benar, lalu klik Payment.</p><div class="warn" style="margin-top:6px">⚠ Batas waktu 7 menit</div></div></div>
+      <div class="step"><div class="num">4</div><div><b>Bayar</b><p>Pilih metode, selesaikan transaksi.</p></div></div>
+      <div class="step"><div class="num">5</div><div><b>Cek email</b><p>Email konfirmasi = slot aman.</p></div></div>
+    </div>
+
+    <div class="sec"><div class="n">11</div><span class="tag">Sebelum daftar</span>
+      <div class="h2">Cek dulu</div>
+      <div class="check">☐ Umur min. 13 th (5K) / 17 th (10K, HM, Marathon)</div>
+      <div class="check">☐ WNI pilih National, WNA pilih Open</div>
+      <div class="check">☐ Race pack <b>wajib</b> diambil 10–12 Jun di JICC Senayan</div>
+      <div class="check">☐ Data diri & metode bayar sudah siap (7 menit)</div>
+    </div>
+
+    <div class="sec"><div class="n">12</div><span class="tag">Tentang Sporticx</span>
+      <p style="font-size:13px"><b>Kenapa pindah ke Sporticx?</b><br><span class="small">Pembayaran diproses oleh Sporticx, partner tiket resmi JAKIM. Hasil lomba 2024–2026 juga ada di sana.</span></p>
+    </div>
+
+    <div class="foot">Footer sama dengan Home</div>
+  </div></div>
+</div>
+
+</div>
+<div class="rowtitle">3 · MENU HP</div>
+<div class="pair">
+<div class="col">
+  <div class="label">LAMA · Menu HP <span>(as-is)</span></div>
+  <div class="wrap"><div class="phone old">
+    <div class="nav"><div style="font-size:20px">✕</div><div class="logo">LOGO</div><div></div></div>
+    <div class="menu"><div class="n" style="left:6px;top:6px">D</div>
+      <div class="m" style="font-size:18px">Entry ▾</div><div class="tba" style="color:var(--ink)">Register Now · FAQ · SnK</div>
+      <div class="m" style="font-size:18px">Expo ▾</div><div class="tba">Information (to be announced)</div><div class="tba">Exhibitors (to be announced)</div><div class="tba">Activity Race Expo (to be announced)</div><div class="tba" style="color:var(--ink)">Race Pack Collection</div>
+      <div class="m" style="font-size:18px">Race Weekend ▾</div><div class="tba">Road closure (to be announced)</div><div class="tba">How to Entry (to be announced)</div><div class="tba">Race Center (to be announced)</div><div class="tba">…</div><div class="tba" style="color:var(--ink)">Route</div><div class="tba">… 13 item lagi (to be announced)</div>
+      <div class="m" style="font-size:18px">Training ▾</div><div class="m" style="font-size:18px">Tourism ▾</div><div class="m" style="font-size:18px">More ▾</div><div class="m" style="font-size:18px">About ▾</div>
+      <p class="small" style="margin-top:10px">±37 item, cuma 9 yang bisa diklik. Item TBA tercampur dengan yang aktif.</p>
+    </div>
+  </div></div>
+</div>
+<div class="vs">→</div>
+<div class="col">
+  <div class="label">BARU · Menu HP <span>(to-be)</span></div>
+  <div class="wrap"><div class="phone">
+    <div class="nav"><div class="logo">LOGO JAKIM 2027</div><div style="font-size:20px">✕</div></div>
+    <div class="menu"><div class="n" style="left:6px;top:6px">13</div>
+      <div class="m">Daftar</div><div class="m">Kategori & Rute</div><div class="m">Race Pack</div><div class="m">FAQ</div><div class="m">Galeri & Hasil</div><div class="m">Kontak</div>
+      <div class="grp">SEGERA HADIR ▾</div>
+      <div class="tba">Expo <i>SEGERA</i></div>
+      <div class="tba">Race Weekend <i>SEGERA</i></div>
+      <div class="tba">After Race <i>SEGERA</i></div>
+      <div class="tba" style="color:var(--ink);font-weight:700">Training · Sunmorun <span class="badge open" style="font-size:9px">AKTIF</span></div>
+      <div class="tba">Tourism <i>SEGERA</i></div>
+      <div class="tba">More <i>SEGERA</i></div>
+      <div style="margin-top:18px;display:flex;gap:8px"><div class="chip">ID</div><div class="chip" style="color:var(--g4);border-color:var(--g3)">EN</div></div>
+      <div class="btn p w" style="margin-top:16px">DAFTAR SEKARANG</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="notes">
+  <div class="label">Catatan</div>
+  <h3>Home</h3>
+  <ol style="list-style:none">
+    <li><span class="k">1</span>Judul, tanggal, status, dan 1 CTA langsung di layar pertama. Asli: kolase video tanpa info (U1).</li>
+    <li><span class="k">2</span>4 kartu vertikal, bukan carousel. Harga + badge status langsung keliatan, tanpa modal (F1, F2, U2). Yang masih buka ditaruh di atas. Toggle WNI/WNA ngejelasin National/Open (F3).</li>
+    <li><span class="k">3</span>Versi singkat cara daftar. Peringatan 7 menit dikeluarin dari gambar (F4, F9).</li>
+    <li><span class="k">4</span>Countdown + social proof tetap dipertahankan.</li>
+    <li><span class="k">5</span>5 pertanyaan yang paling sering bikin orang DM.</li>
+    <li><span class="k">6</span>Sticky bar muncul setelah lewat hero.</li>
+  </ol>
+  <h3>Daftar</h3>
+  <ol style="list-style:none">
+    <li><span class="k">7</span>Timeline fase pendaftaran: sekarang di mana, berikutnya apa.</li>
+    <li><span class="k">8</span>Day 2 (buka) di atas, Day 1 (habis) di bawah dengan tombol disabled.</li>
+    <li><span class="k">9</span>Tabel harga lengkap + Master (F8). Harga yang habis dicoret.</li>
+    <li><span class="k">10</span>5 langkah dalam bentuk teks, gantiin gambar 1920×1080 (F4).</li>
+    <li><span class="k">11</span>Checklist dari info yang asalnya terkubur di FAQ (umur, WNI/WNA, race pack wajib).</li>
+    <li><span class="k">12</span>Jelasin kenapa pindah domain ke Sporticx (F5).</li>
+  </ol>
+  <h3>Menu</h3>
+  <ol style="list-style:none">
+    <li><span class="k">13</span>6 menu aktif di atas. Semua TBA dikumpulin di "Segera hadir", tampil tapi disabled (F6, IA1).</li>
+  </ol>
+  <h3>Keputusan (7 Nov)</h3>
+  <ul>
+    <li>Hero: foto dulu (video bisa nyusul + poster).</li>
+    <li>Urutan kartu: yang masih buka di atas, sold out di bawah.</li>
+    <li>Section "Kenapa JAKIM" dibuang. HUT ke-500 cukup jadi eyebrow di hero.</li>
+    <li>FAQ "Bisa refund?" diganti "Jam berapa start?" karena situs asli tidak punya info refund.</li>
+  </ul>
+</div>
+</div>
+</body>
+</html>

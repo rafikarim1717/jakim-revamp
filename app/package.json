@@ -1,0 +1,18 @@
+{
+  "name": "jakim-revamp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out"
+  },
+  "dependencies": {
+    "@fontsource/barlow-condensed": "^5.2.6",
+    "@fontsource/bebas-neue": "^5.2.6",
+    "@fontsource/inter": "^5.2.8",
+    "next": "16.4.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}

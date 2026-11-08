@@ -1,0 +1,301 @@
+{
+  "_meta": {
+    "source": "jakim.id (homepage modal, /registration, /pre-race, /race, /race-pack-collection)",
+    "checkedAt": "2026-11-08",
+    "note": "Konsep revamp tidak resmi. Status dan harga bisa berubah, jadi cek ulang sebelum posting.",
+    "history": [
+      "2026-11-07: Day 1 (5K & 10K) sold out",
+      "2026-11-08: Day 2 (HM & FM) sold out, semua early bird habis"
+    ]
+  },
+  "event": {
+    "name": "Jakarta International Marathon 2027",
+    "short": "JAKIM 2027",
+    "edition": "HUT Jakarta ke-500",
+    "tagline": "Just Run It.",
+    "days": [
+      {
+        "id": "day1",
+        "date": "2027-06-12",
+        "label": "Sabtu, 12 Juni 2027",
+        "categories": [
+          "5k",
+          "10k"
+        ]
+      },
+      {
+        "id": "day2",
+        "date": "2027-06-13",
+        "label": "Minggu, 13 Juni 2027",
+        "categories": [
+          "hm",
+          "fm"
+        ]
+      }
+    ],
+    "startTime": "04.00 WIB",
+    "start": "Monas, Silang Barat Laut",
+    "finish": "Stadion Utama GBK",
+    "organizer": "IMRR",
+    "history": [
+      {
+        "year": 2023,
+        "runners": 12000,
+        "note": "sebagai Jakarta Run"
+      },
+      {
+        "year": 2024,
+        "runners": 15000
+      },
+      {
+        "year": 2025,
+        "runners": 30000
+      },
+      {
+        "year": 2026,
+        "runners": 45000
+      }
+    ]
+  },
+  "registration": {
+    "platform": "Sporticx",
+    "registerUrl": "https://sporticx.com/newevent/dtl/cHJza1VoYXVyZlFvZXJDb2YxMFBaZz09?source=web",
+    "checkUrl": {
+      "day1": "https://sporticx.com/cek-email/SjlEZkxiWHhGTzIveFhZQmZGTWppZz09",
+      "day2": "https://sporticx.com/cek-email/cHJza1VoYXVyZlFvZXJDb2YxMFBaZz09"
+    },
+    "phases": [
+      {
+        "id": "early",
+        "label": "Early bird",
+        "opens": "2026-11-05",
+        "who": "WNI",
+        "status": "sold_out",
+        "closed": "2026-11-08"
+      },
+      {
+        "id": "general",
+        "label": "General",
+        "opens": "Setelah early bird habis",
+        "who": "WNI",
+        "status": "upcoming"
+      },
+      {
+        "id": "intl",
+        "label": "Internasional (Open)",
+        "opens": "2026-12-01",
+        "closes": "2026-12-31",
+        "who": "WNA (HM & FM)"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Pilih hari & jarak",
+        "body": "Buka jakim.id, klik Daftar, pilih Day 1 (5K/10K) atau Day 2 (HM/FM)."
+      },
+      {
+        "title": "Pilih kategori",
+        "body": "Pilih kategori di halaman Sporticx, lalu klik Buy Ticket."
+      },
+      {
+        "title": "Isi data diri",
+        "body": "Isi data dengan benar, lalu klik Payment.",
+        "warning": "Batas waktu isi data hanya 7 menit."
+      },
+      {
+        "title": "Bayar",
+        "body": "Pilih metode pembayaran dan selesaikan transaksi."
+      },
+      {
+        "title": "Cek email",
+        "body": "Setelah pembayaran berhasil, email konfirmasi akan masuk."
+      }
+    ],
+    "now": {
+      "phase": "early_sold_out",
+      "label": "Early bird habis",
+      "next": "General registration",
+      "nextDate": null,
+      "followUrl": "https://www.instagram.com/jakartainternationalmarathon/"
+    }
+  },
+  "categories": [
+    {
+      "id": "5k",
+      "name": "5K",
+      "distanceKm": 5,
+      "day": "day1",
+      "cot": "1 jam",
+      "minAge": 13,
+      "eligibility": "WNI",
+      "status": "early_sold_out",
+      "price": {
+        "early": 375000,
+        "generalNational": 500000,
+        "generalOpen": null
+      },
+      "variants": [
+        "5K National"
+      ]
+    },
+    {
+      "id": "10k",
+      "name": "10K",
+      "distanceKm": 10,
+      "day": "day1",
+      "cot": "2 jam",
+      "minAge": 17,
+      "eligibility": "WNI",
+      "status": "early_sold_out",
+      "price": {
+        "early": 487500,
+        "generalNational": 650000,
+        "generalOpen": null
+      },
+      "variants": [
+        "10K National",
+        "10K Master A (40–49)",
+        "10K Master B (50+)"
+      ]
+    },
+    {
+      "id": "hm",
+      "name": "Half Marathon",
+      "distanceKm": 21.0975,
+      "day": "day2",
+      "cot": "3,5 jam",
+      "minAge": 17,
+      "eligibility": "WNI (National) & WNA (Open)",
+      "status": "early_sold_out",
+      "price": {
+        "early": 637500,
+        "earlyNote": "khusus WNI",
+        "generalNational": 850000,
+        "generalOpen": 1270430
+      },
+      "variants": [
+        "HM National",
+        "HM Open",
+        "HM Master (45+)"
+      ]
+    },
+    {
+      "id": "fm",
+      "name": "Marathon",
+      "distanceKm": 42.195,
+      "day": "day2",
+      "cot": "7 jam",
+      "minAge": 17,
+      "eligibility": "WNI (National) & WNA (Open)",
+      "status": "early_sold_out",
+      "price": {
+        "early": 750000,
+        "earlyNote": "khusus WNI",
+        "generalNational": 1000000,
+        "generalOpen": 1814900
+      },
+      "variants": [
+        "Marathon National",
+        "Marathon Open",
+        "Marathon Master (45+)"
+      ]
+    }
+  ],
+  "racePack": {
+    "dates": "Kamis–Sabtu, 10–12 Juni 2027",
+    "venue": "Jakarta International Convention Center (JICC), Senayan",
+    "time": "Diinformasikan kemudian",
+    "mandatory": true,
+    "mandatoryNote": "Peserta yang tidak mengambil race pack kehilangan status kepesertaan.",
+    "benefits": [
+      "Jersey",
+      "Jersey Finisher (khusus Marathon)",
+      "Finisher Medal",
+      "BIB & Timing Chip",
+      "Goodie bag sponsor",
+      "Asuransi",
+      "E-Racebook",
+      "E-Certificate",
+      "Photo tagging"
+    ]
+  },
+  "contact": {
+    "customerService": {
+      "whatsapp": "+62 857-1756-2728",
+      "hours": "Senin–Jumat, 09.00–18.00"
+    },
+    "sponsorship": {
+      "whatsapp": "+62 813-7431-355"
+    },
+    "commercial": {
+      "label": "Commercial, Merchandise & Hotel Partner",
+      "whatsapp": "+62 896-7335-0236"
+    },
+    "email": "info@jakim.id",
+    "instagram": [
+      "@jakartainternationalmarathon",
+      "@im_roadrunner"
+    ]
+  },
+  "results": [
+    {
+      "year": 2024,
+      "url": "https://result.sporticx.com/result/event_result/btn-jakarta-international-marathon"
+    },
+    {
+      "year": 2025,
+      "url": "https://result.sporticx.com/result/event_result/btn-jakim-2025"
+    },
+    {
+      "year": 2026,
+      "label": "Day 1",
+      "url": "https://result.sporticx.com/result/event_result/btn-jakim-2026-day-1"
+    },
+    {
+      "year": 2026,
+      "label": "Day 2",
+      "url": "https://result.sporticx.com/result/event_result/btn-jakim-2026-day-2"
+    }
+  ],
+  "comingSoon": {
+    "Expo": [
+      "Information",
+      "Exhibitors",
+      "Activity Race Expo"
+    ],
+    "Race Weekend": [
+      "Road closure information",
+      "How to Entry",
+      "Race Center",
+      "Entertainment",
+      "Download Apps",
+      "Pace Team",
+      "Guideline E-Book",
+      "Race Policies & Etiquette",
+      "Joy Zone",
+      "Route facilities & Medical",
+      "Media Policies",
+      "BIB Tracking"
+    ],
+    "After Race": [
+      "Prizes",
+      "Results 2027",
+      "Photos",
+      "Report BIB"
+    ],
+    "Training": [
+      "Workshop",
+      "Training Program"
+    ],
+    "Tourism": [
+      "Transport Partners",
+      "Accommodation Partners",
+      "Destination Partners"
+    ],
+    "More": [
+      "Medal Monday",
+      "The City Club",
+      "Sustainability"
+    ]
+  }
+}

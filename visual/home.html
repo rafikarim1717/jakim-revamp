@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>JAKIM 2027 – Konsep Revamp</title>
+<meta name="description" content="Jakarta International Marathon 2027 · 12–13 Juni 2027 · Monas → GBK. Konsep revamp tidak resmi." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site">
+
+  <header class="hdr">
+    <img src="https://jakim.id/assets/images/Logo%20JAKIM%202027%20v2.png" alt="Jakarta International Marathon 2027" />
+    <div class="hdr-r">
+      <a class="btn btn-gold btn-sm" href="#harga">Daftar</a>
+      <button class="burger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- 1. HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-img" role="img" aria-label="Ribuan pelari JAKIM 2026 di malam hari"></div>
+    <div class="hero-body">
+      <div class="eyebrow l">HUT Jakarta ke-500 · Just Run It.</div>
+      <h1>Jakarta International <em>Marathon</em> 2027</h1>
+      <p class="when">12–13 Juni 2027 <span>·</span> Monas → GBK</p>
+      <div class="chips">
+        <span class="chip"><span class="pulse"></span>Early bird Half & Marathon dibuka</span>
+        <span class="chip off">5K & 10K sudah habis</span>
+      </div>
+      <a class="btn btn-gold btn-full" href="#harga">Daftar Half / Marathon</a>
+      <a class="more" href="#harga">Lihat semua harga ↓</a>
+    </div>
+    <div class="balang"></div>
+  </section>
+
+  <!-- 2. STATUS & HARGA -->
+  <section class="prices" id="harga">
+    <div class="eyebrow">Harga & status · per 7 Nov 2026</div>
+    <h2 class="h2">Pilih jarakmu</h2>
+    <div class="toggle" role="tablist">
+      <button class="on" data-who="wni">WNI (National)</button>
+      <button data-who="wna">WNA (Open)</button>
+    </div>
+    <div id="cards"></div>
+    <p class="note" id="whoNote"></p>
+    <p class="note">Ada kategori Master untuk 40+ dan 45+. <a href="#">Lihat semua kategori →</a></p>
+  </section>
+
+  <!-- 3. CARA DAFTAR -->
+  <section class="steps">
+    <div class="eyebrow l">Cara daftar</div>
+    <h2 class="h2">3 langkah, slot aman</h2>
+    <div class="step"><div class="no">1</div><div><b>Pilih jarak</b><p>Klik Daftar, lalu pilih Half Marathon atau Marathon.</p></div></div>
+    <div class="step"><div class="no">2</div><div><b>Isi data diri</b><p>Kamu akan diarahkan ke Sporticx, partner tiket resmi JAKIM.</p></div></div>
+    <div class="step"><div class="no">3</div><div><b>Bayar & cek email</b><p>Email konfirmasi masuk = slotmu sudah aman.</p></div></div>
+    <div class="warn"><i>7'</i><div><b>Waktu isi data cuma 7 menit.</b> Siapkan data diri dan metode pembayaran sebelum klik Daftar.</div></div>
+    <a class="textlink" href="#">Lihat langkah lengkap →</a>
+  </section>
+
+  <!-- 4. COUNTDOWN + BUKTI -->
+  <section class="cdwn">
+    <div class="eyebrow l">Menuju garis start</div>
+    <div class="cd" id="cd"><div><b>--</b><span>HARI</span></div><div><b>--</b><span>JAM</span></div><div><b>--</b><span>MENIT</span></div><div><b>--</b><span>DETIK</span></div></div>
+    <div class="eyebrow l" style="margin-bottom:40px">Pelari JAKIM dari tahun ke tahun</div>
+    <div class="growth">
+      <div class="bar" style="height:27%"><b>12rb</b></div>
+      <div class="bar" style="height:33%"><b>15rb</b></div>
+      <div class="bar" style="height:67%"><b>30rb</b></div>
+      <div class="bar" style="height:100%"><b>45rb</b></div>
+    </div>
+    <div class="yr"><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
+  </section>
+
+  <!-- 5. MEMORY LANE -->
+  <section>
+    <div class="eyebrow">Memory lane</div>
+    <h2 class="h2">3 tahun, 90rb pelari</h2>
+    <div class="mem">
+      <a href="#" style="background-image:url('https://jakim.id/assets/images/jakim-event-2026-night.jpg')"><span><small>45.000 pelari</small><strong>JAKIM 2026</strong></span></a>
+      <a href="#" style="background-image:url('https://jakim.id/assets/images/GALERI%202025.jpg')"><span><small>30.000 pelari</small><strong>JAKIM 2025</strong></span></a>
+      <a href="#" style="background-image:url('https://jakim.id/assets/images/jakim-event-2024.jpg')"><span><small>15.000 pelari</small><strong>JAKIM 2024</strong></span></a>
+    </div>
+    <a class="textlink" style="color:var(--text)" href="#">Galeri & hasil lomba →</a>
+  </section>
+
+  <!-- 6. FAQ -->
+  <section style="background:var(--paper-2)">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="h2">Yang sering ditanya</h2>
+    <details><summary>Bedanya WNI (National) dan WNA (Open)?</summary><p>National untuk WNI, Open untuk WNA. Kategori Open hanya ada di Half Marathon dan Marathon. Pendaftaran WNA dibuka 1–31 Desember 2026.</p></details>
+    <details><summary>Kapan general registration dibuka?</summary><p>Langsung setelah kuota early bird habis. Belum ada tanggal pasti.</p></details>
+    <details><summary>Race pack diambil di mana?</summary><p>Kamis–Sabtu, 10–12 Juni 2027 di JICC Senayan. Wajib diambil. Peserta yang tidak mengambil race pack kehilangan status kepesertaan.</p></details>
+    <details><summary>Batas umur minimal?</summary><p>5K minimal 13 tahun. 10K, Half Marathon, dan Marathon minimal 17 tahun.</p></details>
+    <details><summary>Jam berapa start?</summary><p>Acara mulai pukul 04.00 WIB. Start di Monas (Silang Barat Laut), finish di Stadion Utama GBK.</p></details>
+    <a class="textlink" style="color:var(--text)" href="#">Semua FAQ →</a>
+  </section>
+
+  <!-- 7. CLOSING -->
+  <section class="closing">
+    <div class="eyebrow l">12–13 Juni 2027 · Monas → GBK</div>
+    <h2 class="h2">Sampai ketemu di garis start</h2>
+    <a class="btn btn-gold btn-full" href="#harga">Daftar sekarang</a>
+    <div class="ondel">
+      <img src="https://jakim.id/assets/images/ondel-pria-geometris-wajah-2.png" alt="" loading="lazy" />
+      <img src="https://jakim.id/assets/images/ondel-wanita-geometris-wajah-2.png" alt="" loading="lazy" />
+    </div>
+  </section>
+
+  <footer>
+    <h4>Customer service</h4>
+    WhatsApp <a href="https://wa.me/6285717562728">+62 857-1756-2728</a><br>Senin–Jumat, 09.00–18.00
+    <h4>Kontak lain</h4>
+    <a href="mailto:info@jakim.id">info@jakim.id</a> · IG <a href="https://instagram.com/jakartainternationalmarathon">@jakartainternationalmarathon</a>
+    <h4>Penyelenggara</h4>
+    Presented by Pemprov DKI Jakarta · 5 Abad Jakarta · Organized by IMRR
+    <p class="disclaim">Konsep revamp tidak resmi oleh Rafi Karim. Tidak berafiliasi dengan JAKIM/IMRR. Data harga & status per 7 Nov 2026, aset visual milik JAKIM.</p>
+  </footer>
+
+  <div class="sticky" id="sticky"><div><b>Half & Marathon</b>Early bird mulai Rp637.500</div><a class="btn btn-gold btn-sm" href="#harga">Daftar</a></div>
+</div>
+
+<script>
+const REG = "https://sporticx.com/newevent/dtl/cHJza1VoYXVyZlFvZXJDb2YxMFBaZz09?source=web";
+const CATS = [
+  { id:"fm", name:"Marathon", km:"42,195 km", day:"Minggu, 13 Jun", cot:"7 jam", age:17, status:"open", early:750000, nat:1000000, open:1814900 },
+  { id:"hm", name:"Half Marathon", km:"21,0975 km", day:"Minggu, 13 Jun", cot:"3,5 jam", age:17, status:"open", early:637500, nat:850000, open:1270430 },
+  { id:"10k", name:"10K", km:"10 km", day:"Sabtu, 12 Jun", cot:"2 jam", age:17, status:"sold_out", early:487500, nat:650000, open:null },
+  { id:"5k", name:"5K", km:"5 km", day:"Sabtu, 12 Jun", cot:"1 jam", age:13, status:"sold_out", early:375000, nat:500000, open:null },
+];
+const rp = n => "Rp" + n.toLocaleString("id-ID");
+let who = "wni";
+function render() {
+  document.getElementById("cards").innerHTML = CATS.map(c => {
+    const sold = c.status === "sold_out";
+    let p1, p2, l1, l2;
+    if (who === "wni") { l1 = "Early bird"; p1 = rp(c.early); l2 = "General"; p2 = rp(c.nat); }
+    else { l1 = "Early bird"; p1 = c.open ? '<span class="na">Khusus WNI</span>' : '<span class="na">–</span>'; l2 = "General (Open)"; p2 = c.open ? rp(c.open) : '<span class="na">Khusus WNI</span>'; }
+    return `<article class="rc ${sold ? "sold" : ""}">
+      <div class="rc-top"><div><div class="rc-name">${c.name}</div><div class="rc-meta">${c.km} · ${c.day}</div></div>
+      <span class="badge ${sold ? "sold" : "open"}">${sold ? "SOLD OUT" : "● BUKA"}</span></div>
+      <div class="rc-price"><div><small>${l1}</small><b>${p1}</b></div><div><small>${l2}</small><b>${p2}</b></div></div>
+      <div class="rc-facts"><span>COT <b>${c.cot}</b></span><span>Min. <b>${c.age} th</b></span><span>Start <b>04.00</b></span></div>
+      ${sold ? "" : `<a class="btn btn-gold btn-full" href="${REG}" target="_blank" rel="noopener">Daftar ${c.name}</a>`}
+    </article>`;
+  }).join("");
+  document.getElementById("whoNote").textContent = who === "wni"
+    ? "Early bird Half & Marathon khusus WNI."
+    : "Kategori Open (WNA) hanya untuk Half & Marathon. Pendaftaran WNA dibuka 1–31 Des 2026.";
+}
+document.querySelectorAll(".toggle button").forEach(b => b.onclick = () => {
+  who = b.dataset.who;
+  document.querySelectorAll(".toggle button").forEach(x => x.classList.toggle("on", x === b));
+  render();
+});
+render();
+
+// countdown ke 13 Jun 2027 04.00 WIB
+const target = new Date("2027-06-13T04:00:00+07:00").getTime();
+function tick() {
+  let s = Math.max(0, Math.floor((target - Date.now()) / 1000));
+  const v = [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60];
+  document.querySelectorAll("#cd b").forEach((el, i) => el.textContent = String(v[i]).padStart(2, "0"));
+}
+tick(); setInterval(tick, 1000);
+
+// sticky bar muncul setelah hero
+const st = document.getElementById("sticky");
+new IntersectionObserver(([e]) => st.classList.toggle("show", !e.isIntersecting)).observe(document.getElementById("hero"));
+</script>
+</body>
+</html>

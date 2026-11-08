@@ -1,0 +1,175 @@
+/* JAKIM revamp: shared styles (kontras dicek WCAG AA, min font 12px) */
+  :root {
+    --ink:#08090c; --ink-2:#14212b; --ink-3:#1c2733;
+    --paper:#ffffff; --paper-2:#f7f8fa; --line-l:#e4e6ea;
+    --text:#1a1d28; --mute:#6b7280; --mute-d:#9ca2ae;
+    --gold:#ffd13b; --gold-line:rgba(212,175,55,.45); --gold-dim:#a88428; --gold-text:#7a5f12;
+    --sold:#6b7280; --sold-strike:#7b8294;
+    --display:"Bebas Neue", Impact, sans-serif;
+    --sub:"Barlow Condensed", "Arial Narrow", sans-serif;
+    --body:"Inter", system-ui, sans-serif;
+    --img:"https://jakim.id/assets/images/";
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--body); background:#000; color:var(--text); -webkit-font-smoothing:antialiased; }
+  .site { max-width:480px; margin:0 auto; background:var(--paper); position:relative; overflow:hidden; }
+  a { color:inherit; }
+  img { display:block; max-width:100%; }
+
+  /* ---------- header ---------- */
+  .hdr { position:sticky; top:0; z-index:30; display:flex; align-items:center; justify-content:space-between; padding:10px 16px; background:var(--ink); border-bottom:1px solid var(--gold-line); }
+  .hdr img { height:34px; width:auto; }
+  .hdr-r { display:flex; align-items:center; gap:12px; }
+  .burger { width:40px; height:40px; display:flex; flex-direction:column; justify-content:center; gap:5px; align-items:center; border:1px solid var(--gold-line); background:none; }
+  .burger span { width:18px; height:2px; background:#fff; }
+
+  /* ---------- buttons ---------- */
+  .btn { display:flex; align-items:center; justify-content:center; gap:8px; min-height:56px; padding:0 20px; font-family:var(--body); font-weight:900; font-size:16px; letter-spacing:.04em; text-transform:uppercase; text-decoration:none; border:0; cursor:pointer; }
+  .btn-gold { background:var(--gold); color:var(--ink); box-shadow:0 8px 28px rgba(212,175,55,.35); }
+  .btn-sm { min-height:40px; font-size:13px; padding:0 14px; box-shadow:none; }
+  .btn-full { width:100%; }
+  .btn-ghost { background:transparent; color:#fff; border:1px solid var(--gold-line); }
+  .btn-off { background:#e9eaee; color:#5f6673; cursor:not-allowed; box-shadow:none; }
+
+  /* ---------- type ---------- */
+  .eyebrow { font-size:12px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-text); }
+  .eyebrow.l { color:var(--gold); }
+  .h2 { font-family:var(--display); font-size:48px; line-height:.92; letter-spacing:.005em; margin:6px 0 18px; }
+  .lead { font-size:15px; line-height:1.55; color:var(--mute); }
+  section { padding:44px 20px; }
+  .dark { background:var(--ink); color:#fff; }
+  .dark .lead { color:var(--mute-d); }
+
+  /* ---------- hero ---------- */
+  .hero { position:relative; padding:0; color:#fff; background:var(--ink); }
+  .hero-img { height:300px; background:linear-gradient(180deg, rgba(8,9,12,.05) 0%, rgba(8,9,12,.25) 55%, var(--ink) 100%), url("https://jakim.id/assets/images/jakim-event-2026-night.jpg") center/cover; }
+  .hero-body { padding:0 20px 36px; margin-top:-56px; position:relative; }
+  .hero h1 { font-family:var(--display); font-size:68px; line-height:.86; margin:10px 0 14px; }
+  .hero h1 em { font-style:normal; color:var(--gold); }
+  .hero .when { font-family:var(--sub); font-weight:700; font-size:22px; letter-spacing:.02em; margin-bottom:16px; }
+  .hero .when span { color:var(--gold); }
+  .chips { display:flex; flex-direction:column; gap:8px; margin-bottom:22px; align-items:flex-start; }
+  .chip { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; font-size:13px; font-weight:700; border:1px solid var(--gold-line); background:rgba(255,209,59,.08); }
+  .chip.off { color:var(--mute-d); border-color:#2d333d; background:transparent; }
+  .pulse { width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 0 rgba(255,209,59,.6); animation:pulse 1.8s infinite; }
+  @keyframes pulse { 70% { box-shadow:0 0 0 8px rgba(255,209,59,0); } 100% { box-shadow:0 0 0 0 rgba(255,209,59,0); } }
+  .hero .more { display:block; text-align:center; margin-top:14px; font-size:14px; font-weight:700; color:#fff; text-decoration:underline; text-underline-offset:4px; }
+  .balang { height:22px; background:url("https://jakim.id/assets/images/gigi-balang.png") repeat-x center/auto 22px; opacity:.9; }
+
+  /* ---------- prices ---------- */
+  .prices { background:var(--paper-2); }
+  .toggle { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--ink); margin-bottom:16px; }
+  .toggle button { min-height:46px; font-family:var(--body); font-weight:800; font-size:14px; background:#fff; border:0; cursor:pointer; color:var(--text); }
+  .toggle button.on { background:var(--ink); color:var(--gold); }
+  .rc { background:var(--ink); color:#fff; padding:18px; margin-bottom:12px; border-left:4px solid var(--gold); position:relative; }
+  .rc.sold { background:#fff; color:var(--sold); border:1px solid var(--line-l); border-left:4px solid #d5d8de; }
+  .rc-top { display:flex; justify-content:space-between; align-items:flex-start; }
+  .rc-name { font-family:var(--display); font-size:40px; line-height:.9; }
+  .rc-meta { font-size:13px; color:var(--mute-d); margin-top:4px; }
+  .rc.sold .rc-meta { color:var(--sold); }
+  .badge { font-size:12px; font-weight:900; letter-spacing:.12em; padding:6px 9px; display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }
+  .badge.open { background:var(--gold); color:var(--ink); }
+  .badge.sold { background:#eceef1; color:#5f6673; }
+  .rc-price { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .rc-price small { display:block; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--mute-d); margin-bottom:2px; }
+  .rc-price b { font-family:var(--sub); font-weight:800; font-size:28px; letter-spacing:.01em; }
+  .rc.sold .rc-price b { color:var(--sold-strike); text-decoration:line-through; text-decoration-thickness:2px; }
+  .rc.sold .rc-price small { color:var(--sold); }
+  .rc-price .na { font-family:var(--body); font-size:13px; font-weight:600; color:var(--mute-d); }
+  .rc-facts { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:14px; padding-top:12px; border-top:1px solid rgba(255,255,255,.1); font-size:13px; font-weight:600; color:var(--mute-d); }
+  .rc-facts b { color:#fff; }
+  .rc.sold .rc-facts { border-color:var(--line-l); } .rc.sold .rc-facts b { color:var(--sold); }
+  .rc .btn { margin-top:16px; }
+  .note { font-size:14px; line-height:1.55; color:var(--mute); margin-top:6px; }
+  .note a { font-weight:800; color:var(--text); }
+
+  /* ---------- steps ---------- */
+  .steps { background:var(--ink-2); color:#fff; }
+  .step { display:grid; grid-template-columns:48px 1fr; gap:14px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+  .step .no { font-family:var(--display); font-size:44px; line-height:.8; color:var(--gold); }
+  .step b { font-size:16px; } .step p { font-size:14px; color:var(--mute-d); margin-top:4px; line-height:1.5; }
+  .warn { display:flex; gap:12px; align-items:flex-start; margin-top:20px; padding:14px; border:1px solid var(--gold); background:rgba(255,209,59,.08); font-size:14px; line-height:1.5; }
+  .warn i { font-style:normal; font-family:var(--display); font-size:34px; line-height:.9; color:var(--gold); }
+  .textlink { display:inline-block; margin-top:18px; font-weight:800; font-size:14px; color:var(--gold); text-decoration:none; }
+
+  /* ---------- countdown ---------- */
+  .cdwn { background:linear-gradient(rgba(6,8,14,.86), rgba(6,8,14,.92)), url("https://jakim.id/assets/images/bg_city_new.jpg.jpeg") center/cover; color:#fff; text-align:center; }
+  .cd { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:18px 0 30px; }
+  .cd div { border:1px solid var(--gold-line); padding:12px 0 10px; background:rgba(0,0,0,.25); }
+  .cd b { display:block; font-family:var(--display); font-size:44px; line-height:.9; }
+  .cd span { font-size:12px; font-weight:900; letter-spacing:.14em; color:var(--gold); }
+  .growth { display:grid; grid-template-columns:repeat(4,1fr); align-items:end; gap:6px; height:150px; }
+  .bar { background:linear-gradient(180deg, var(--gold), var(--gold-dim)); position:relative; }
+  .bar b { position:absolute; top:-30px; left:0; right:0; font-family:var(--display); font-size:26px; color:#fff; }
+  .yr { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:8px; font-size:13px; font-weight:800; color:var(--mute-d); }
+
+  /* ---------- memory ---------- */
+  .mem { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; margin:0 -20px; padding:0 20px 6px; scrollbar-width:none; }
+  .mem a { scroll-snap-align:start; min-width:240px; height:300px; position:relative; display:flex; align-items:flex-end; padding:16px; color:#fff; text-decoration:none; background-size:cover; background-position:center; }
+  .mem a::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 40%, rgba(8,9,12,.9)); }
+  .mem span { position:relative; } .mem strong { display:block; font-family:var(--display); font-size:38px; line-height:.9; }
+  .mem small { font-size:12px; font-weight:800; letter-spacing:.12em; color:var(--gold); }
+
+  /* ---------- faq ---------- */
+  details { border-top:1px solid var(--line-l); }
+  details:last-of-type { border-bottom:1px solid var(--line-l); }
+  summary { list-style:none; cursor:pointer; padding:18px 36px 18px 0; font-weight:800; font-size:15px; position:relative; }
+  summary::-webkit-details-marker { display:none; }
+  summary::after { content:"+"; position:absolute; right:4px; top:12px; font-family:var(--display); font-size:30px; color:var(--gold-text); }
+  details[open] summary::after { content:"–"; }
+  details p { font-size:14px; line-height:1.6; color:var(--mute); padding:0 0 18px; }
+
+  /* ---------- closing ---------- */
+  .closing { background:var(--ink); color:#fff; text-align:center; position:relative; padding-bottom:0; }
+  .closing .h2 { font-size:56px; }
+  .ondel { display:flex; justify-content:center; gap:0; margin-top:24px; }
+  .ondel img { width:46%; height:auto; }
+
+  /* ---------- footer ---------- */
+  footer { background:#050608; color:var(--mute-d); padding:32px 20px 110px; font-size:14px; line-height:1.7; }
+  footer h4 { color:#fff; font-size:12px; letter-spacing:.14em; text-transform:uppercase; margin:18px 0 6px; }
+  footer a { color:#fff; text-decoration:none; font-weight:700; }
+  .disclaim { margin-top:24px; padding-top:16px; border-top:1px solid #1d2128; font-size:12px; color:#8b919c; }
+
+  /* ---------- sticky ---------- */
+  .sticky { position:fixed; left:50%; bottom:0; transform:translate(-50%, 110%); width:100%; max-width:480px; z-index:40; display:flex; gap:12px; align-items:center; padding:10px 16px calc(10px + env(safe-area-inset-bottom)); background:rgba(8,9,12,.96); border-top:1px solid var(--gold-line); color:#fff; transition:transform .25s ease; }
+  .sticky.show { transform:translate(-50%, 0); }
+  .sticky div { flex:1; font-size:13px; color:var(--mute-d); line-height:1.3; }
+  .sticky div b { display:block; color:#fff; font-size:14px; }
+
+/* ---------- halaman daftar ---------- */
+.pagehead { background:var(--ink); color:#fff; padding:36px 20px 30px; }
+.pagehead h1 { font-family:var(--display); font-size:64px; line-height:.88; margin:8px 0 22px; }
+.phase { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+.phase div { border:1px solid #2d333d; padding:10px 10px 12px; font-size:13px; line-height:1.35; color:var(--mute-d); }
+.phase b { display:block; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#fff; margin-bottom:4px; }
+.phase .now { border-color:var(--gold); background:rgba(255,209,59,.1); }
+.phase .now b { color:var(--gold); }
+.daycard { padding:22px 18px; margin-bottom:14px; background:var(--ink); color:#fff; border-left:4px solid var(--gold); }
+.daycard.sold { background:#fff; color:var(--sold); border:1px solid var(--line-l); border-left:4px solid #d5d8de; }
+.daycard .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.daycard .eyebrow { color:var(--gold); }
+.daycard.sold .eyebrow { color:var(--sold); }
+.daycard h3 { font-family:var(--display); font-size:42px; line-height:.9; font-weight:400; }
+.daycard p { font-size:14px; color:var(--mute-d); margin:8px 0 18px; line-height:1.5; }
+.daycard.sold p { color:var(--sold); }
+.checklink { display:block; text-align:center; margin-top:12px; font-size:14px; font-weight:700; text-decoration:underline; text-underline-offset:4px; }
+.ptable { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+.ptable th { font-size:12px; letter-spacing:.06em; text-transform:uppercase; text-align:left; padding:10px 8px; background:var(--ink); color:var(--gold); font-weight:800; }
+.ptable td { padding:12px 8px; border-bottom:1px solid var(--line-l); font-family:var(--sub); font-weight:700; font-size:18px; }
+.ptable td:first-child { font-family:var(--body); font-weight:800; font-size:14px; }
+.ptable tr.sold td { color:var(--sold); }
+.ptable tr.sold td:not(:first-child) { text-decoration:line-through; color:var(--sold-strike); }
+.ptable td small { display:block; font-family:var(--body); font-size:12px; font-weight:600; color:var(--sold); text-decoration:none; }
+.tablewrap { overflow-x:auto; margin:0 -20px; padding:0 20px; }
+.master { margin-top:16px; padding:14px; border:1px solid var(--line-l); background:#fff; font-size:14px; line-height:1.6; }
+.master b { display:block; margin-bottom:4px; }
+.step .warn { margin-top:10px; padding:10px 12px; font-size:14px; }
+.check { list-style:none; }
+.check li { display:grid; grid-template-columns:28px 1fr; gap:10px; padding:14px 0; border-bottom:1px solid var(--line-l); font-size:15px; line-height:1.5; }
+.check li::before { content:""; width:22px; height:22px; border:2px solid var(--ink); margin-top:1px; }
+.partner { display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start; padding:18px; border:1px solid var(--line-l); background:#fff; }
+.partner .ic { width:44px; height:44px; background:var(--ink); color:var(--gold); display:flex; align-items:center; justify-content:center; font-family:var(--display); font-size:26px; }
+.partner b { font-size:16px; } .partner p { font-size:14px; color:var(--mute); line-height:1.55; margin-top:4px; }
+.crumb { font-size:13px; color:var(--mute-d); } .crumb a { color:#fff; font-weight:700; text-decoration:none; }

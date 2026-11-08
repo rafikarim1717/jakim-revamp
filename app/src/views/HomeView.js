@@ -25,7 +25,6 @@ export default function HomeView({ lang = "id" }) {
           </p>
           <div className="hero-ctas">
             <a className="btn btn-gold" href={follow} target="_blank" rel="noopener">{L.hero.follow}</a>
-            <Link className="textcta" href={href(lang, "/daftar") + "#hari"}>{L.hero.check} →</Link>
           </div>
         </div>
         <div className="hband">

@@ -712,3 +712,6 @@ section { padding:64px 20px; }
   .hero-img { height:72%; -webkit-mask-image:linear-gradient(180deg, #000 55%, transparent 100%); mask-image:linear-gradient(180deg, #000 55%, transparent 100%); }
   .hero-img::after { background:linear-gradient(180deg, rgba(15,42,34,.55) 0%, rgba(15,42,34,.1) 20%, rgba(15,42,34,.45) 60%, rgba(15,42,34,.7) 100%); }
 }
+
+/* sticky bar dihapus → footer HP ga perlu ruang ekstra */
+footer { padding-bottom:40px; }

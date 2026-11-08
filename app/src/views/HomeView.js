@@ -5,7 +5,6 @@ import PriceCards from "@/components/PriceCards";
 import Countdown from "@/components/Countdown";
 import Steps from "@/components/Steps";
 import Faq from "@/components/Faq";
-import StickyBar from "@/components/StickyBar";
 
 export default function HomeView({ lang = "id" }) {
   const L = T[lang];
@@ -36,7 +35,6 @@ export default function HomeView({ lang = "id" }) {
       <section className="prices" id="harga">
         <div className="eyebrow">{L.price.eyebrow} {checked}</div>
         <h2 className="h2">{L.price.title}</h2>
-        <div className="statusbar"><span className="pulse"></span><p><b>{L.price.status[0]}</b>{L.price.status[1]}</p></div>
         <PriceCards lang={lang} />
       </section>
 
@@ -86,7 +84,6 @@ export default function HomeView({ lang = "id" }) {
         </div>
       </section>
 
-      <StickyBar lang={lang} />
     </>
   );
 }

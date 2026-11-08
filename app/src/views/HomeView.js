@@ -30,6 +30,10 @@ export default function HomeView({ lang = "id" }) {
             <Link className="textcta" href={href(lang, "/daftar") + "#hari"}>{L.hero.check} →</Link>
           </div>
         </div>
+        <div className="hband">
+          <div className="d"><b>{L.hero.when}</b><span>Monas → GBK, Jakarta</span></div>
+          <Countdown lang={lang} />
+        </div>
         <div className="balang" style={{ backgroundImage: `url("${IMG}gigi-balang.png")` }} />
       </section>
 
@@ -47,14 +51,14 @@ export default function HomeView({ lang = "id" }) {
         <Link className="textlink" href={href(lang, "/daftar") + "#cara-daftar"}>{L.steps.more}</Link>
       </section>
 
-      <section className="cdwn">
-        <div className="cd-grid">
+      <section>
+        <div className="mem-head">
           <div>
-            <div className="eyebrow l">{L.cd.eyebrow}</div>
-            <Countdown lang={lang} />
+            <div className="eyebrow">{L.mem.eyebrow}</div>
+            <h2 className="h2">{L.mem.title}</h2>
           </div>
-          <div>
-            <div className="eyebrow l" style={{ marginBottom: 40 }}>{L.cd.growth}</div>
+          <div className="mem-growth">
+            <div className="eyebrow">{L.cd.growth}</div>
             <div className="growth">
               {hist.map((h) => (
                 <div key={h.year} className="bar" style={{ height: `${Math.round((h.runners / max) * 100)}%` }}><b>{h.runners / 1000}{L.cd.k}</b></div>
@@ -63,11 +67,6 @@ export default function HomeView({ lang = "id" }) {
             <div className="yr">{hist.map((h) => <span key={h.year}>{h.year}</span>)}</div>
           </div>
         </div>
-      </section>
-
-      <section>
-        <div className="eyebrow">{L.mem.eyebrow}</div>
-        <h2 className="h2">{L.mem.title}</h2>
         <div className="mem">
           {[["2026", 45000, "jakim-event-2026-night.jpg"], ["2025", 30000, "GALERI%202025.jpg"], ["2024", 15000, "jakim-event-2024.jpg"]].map(([y, n, f]) => (
             <a key={y} href={`https://jakim.id/galeri/${y}`} target="_blank" rel="noopener" style={{ backgroundImage: `url("${IMG}${f}")` }}>

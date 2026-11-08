@@ -589,3 +589,41 @@ section { padding:64px 20px; }
 /* navbar — panah lebih rapat & kebaca */
 .mbtn { gap:4px; }
 .mbtn span { font-size:13px; line-height:1; color:inherit; opacity:.85; }
+
+/* kotak peringatan 7 menit — selebar isinya, ga gendut */
+.warn { display:inline-flex; align-items:center; width:auto; max-width:640px; padding:12px 16px; gap:12px; }
+.warn i { font-size:28px; line-height:1; }
+.steps .textlink { display:block; width:fit-content; }
+
+/* hero v3 — tanggal + countdown di strip bawah hero (desktop); mobile: tanggal tetap di atas, strip cuma countdown */
+.hband { position:relative; z-index:1; margin:0 20px; padding:16px 0 24px; border-top:1px solid rgba(255,255,255,.18); color:#fff; }
+.hband .d { display:none; }
+.hband .cd { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:0; }
+.hband .cd div { border:0; background:none; padding:0; align-items:flex-start; text-align:left; gap:4px; }
+.hband .cd b { font-family:var(--display); font-weight:400; font-size:36px; line-height:1; }
+.hband .cd span { font-size:12px; font-weight:800; letter-spacing:.14em; color:var(--gold); }
+@media (min-width: 900px) {
+  .hero { justify-content:flex-start; }
+  .hero .when { display:none; }
+  .hero-body { margin-top:auto; padding-bottom:48px; }
+  .hband { margin:0 var(--gut) 22px; padding:24px 0 32px; display:flex; justify-content:space-between; align-items:center; gap:32px; }
+  .hband .d { display:block; }
+  .hband .d b { display:block; font-family:var(--sub); font-weight:800; font-size:32px; line-height:1.1; letter-spacing:.01em; }
+  .hband .d span { font-size:16px; font-weight:500; color:var(--mute-d); }
+  .hband .cd { display:flex; gap:32px; }
+  .hband .cd div { align-items:center; text-align:center; }
+  .hband .cd b { font-size:56px; }
+}
+
+/* memory lane + grafik pelari (pindahan dari section countdown) */
+.mem-head { display:grid; gap:32px; margin-bottom:32px; }
+.mem-head .h2 { margin-bottom:0; }
+.mem-growth .growth { height:140px; margin-top:40px; }
+.mem-growth .bar b { color:var(--text); }
+.mem-growth .yr { color:var(--mute); }
+@media (min-width: 900px) { .mem-head { grid-template-columns:1fr minmax(0,480px); align-items:end; gap:64px; margin-bottom:48px; } }
+@media (max-width: 899px) {
+  .hband { margin:0 24px; }
+  .hero-status .next { display:block; }
+  .hero-status .next .pulse { display:inline-block; vertical-align:2px; }
+}

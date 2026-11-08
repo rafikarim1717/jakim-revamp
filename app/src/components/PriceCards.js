@@ -22,9 +22,8 @@ export default function PriceCards({ lang = "id" }) {
             <article key={c.id} className="rc">
               <div className="rc-head">
                 <h3 className="rc-name">{T[lang].cats[c.id]}</h3>
-                <span className="rc-km">{km(lang, c.distanceKm)}</span>
               </div>
-              <p className="rc-day">{D[c.day]} 2027</p>
+              <p className="rc-day">{km(lang, c.distanceKm)} · {D[c.day]}</p>
               <div className="rc-main">
                 <small>{t.general}{wna ? ` · ${t.wna}` : ""}</small>
                 {main ? <b>{money(lang, main)}</b> : <b className="na">{t.onlyWni}</b>}
@@ -35,8 +34,8 @@ export default function PriceCards({ lang = "id" }) {
                 </p>
               )}
               <ul className="rc-facts">
-                <li>{t.cot} <b>{T[lang].cot[c.cot] || c.cot}</b></li>
-                <li>{t.age} <b>{c.minAge}{t.yr ? ` ${t.yr}` : "+"}</b></li>
+                <li><span>{t.cot}</span><b>{T[lang].cot[c.cot] || c.cot}</b></li>
+                <li><span>{t.age}</span><b>{c.minAge}{t.yr ? ` ${t.yr}` : "+"}</b></li>
               </ul>
               {c.status === "open" && (
                 <a className="btn btn-gold btn-full" href={reg} target="_blank" rel="noopener">{t.register} {T[lang].cats[c.id]}</a>

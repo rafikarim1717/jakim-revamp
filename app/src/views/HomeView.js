@@ -20,7 +20,7 @@ export default function HomeView({ lang = "id" }) {
           <h1>Jakarta International <em>Marathon</em> 2027</h1>
           <p className="when">{L.hero.when} <span>·</span> Monas → GBK</p>
           <p className="hero-status">
-            <span className="next"><span className="pulse"></span><b>{L.status.l}</b>{L.status.v}</span>
+            <span className="next"><b>{L.status.l}</b>{L.status.v}</span>
             <span className="sold">{L.status.sold}</span>
           </p>
           <div className="hero-ctas">
@@ -31,7 +31,6 @@ export default function HomeView({ lang = "id" }) {
           <div className="d"><b>{L.hero.when}</b><span>Monas → GBK, Jakarta</span></div>
           <Countdown lang={lang} />
         </div>
-        <div className="balang" style={{ backgroundImage: `url("${IMG}gigi-balang.png")` }} />
       </section>
 
       <section className="prices" id="harga">

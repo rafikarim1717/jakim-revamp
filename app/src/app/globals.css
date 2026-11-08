@@ -672,3 +672,43 @@ section { padding:64px 20px; }
 .toggle button { min-height:40px; padding:0 20px; border-radius:999px; background:transparent; color:var(--mute); font-size:14px; font-weight:800; }
 .toggle button.on { background:var(--ink); color:#fff; }
 @media (min-width: 900px) and (max-width: 1199px) { .rc-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 899px) {
+  .hero-status .next { white-space:nowrap; font-size:clamp(12px, 3.8vw, 16px); }
+  .hero-status .sold { padding-left:20px; }
+}
+/* hero HP: pas 1 layar penuh, foto ngisi sisa ruang */
+@media (max-width: 899px) {
+  .hero { min-height:100svh; display:flex; flex-direction:column; }
+  .hero-img { flex:1 1 auto; height:auto; min-height:calc(160px + var(--hh, 57px)); }
+  .hero-body, .hband, .balang { flex:none; }
+}
+@media (max-width: 899px) and (max-height: 720px) {
+  .hero-img { min-height:calc(96px + var(--hh, 57px)); }
+  .hero h1 { font-size:46px; }
+  .hero-body { padding-bottom:24px; }
+  .hband { padding:12px 0 16px; }
+}
+
+/* hero v4 — tanpa gigi balang, tanpa titik status, semua rata kiri; HP: foto jadi background penuh */
+.hero-status .sold { padding-left:0; }
+@media (min-width: 900px) {
+  .hero-status .sold { padding-left:16px; }
+  .hband { margin-bottom:0; padding-bottom:40px; }
+}
+@media (max-width: 899px) {
+  .hero { justify-content:flex-end; }
+  .hero-img { position:absolute; inset:0; height:auto; min-height:0; background-position:center 30%; }
+  .hero-img::after { background:linear-gradient(180deg, rgba(15,42,34,.55) 0%, rgba(15,42,34,.15) 22%, rgba(15,42,34,.7) 48%, var(--ink) 68%); }
+  .hero-body { margin-top:auto; padding-top:calc(var(--hh, 57px) + 140px); }
+  .hband { padding-bottom:24px; }
+}
+@media (max-width: 899px) and (max-height: 720px) { .hero-body { padding-top:calc(var(--hh, 57px) + 72px); } }
+@media (max-width: 899px) {
+  .hero-img { bottom:auto; height:68%; background-position:center 55%; }
+  .hero-img::after { background:linear-gradient(180deg, rgba(15,42,34,.55) 0%, rgba(15,42,34,.1) 20%, rgba(15,42,34,.35) 55%, var(--ink) 100%); }
+}
+@media (max-width: 899px) {
+  /* fade foto pakai mask biar ga ada garis tepi di bawah tanggal */
+  .hero-img { height:72%; -webkit-mask-image:linear-gradient(180deg, #000 55%, transparent 100%); mask-image:linear-gradient(180deg, #000 55%, transparent 100%); }
+  .hero-img::after { background:linear-gradient(180deg, rgba(15,42,34,.55) 0%, rgba(15,42,34,.1) 20%, rgba(15,42,34,.45) 60%, rgba(15,42,34,.7) 100%); }
+}

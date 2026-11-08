@@ -19,7 +19,7 @@ export default function DaftarView({ lang = "id" }) {
         <div className="crumb"><Link href={href(lang, "/")}>Home</Link> / {t.crumb}</div>
         <h1>{t.title}</h1>
         <p className="hero-status">
-          <span className="next"><span className="pulse"></span><b>{L.status.l}</b>{L.status.v}</span>
+          <span className="next"><b>{L.status.l}</b>{L.status.v}</span>
           <span className="sold">{L.status.sold}</span>
         </p>
       </section>

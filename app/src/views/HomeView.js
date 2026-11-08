@@ -9,8 +9,6 @@ import StickyBar from "@/components/StickyBar";
 
 export default function HomeView({ lang = "id" }) {
   const L = T[lang];
-  const hist = race.event.history;
-  const max = Math.max(...hist.map((h) => h.runners));
   const follow = race.registration.now.followUrl;
   const checked = lang === "en" ? "8 Nov 2026" : CHECKED;
   return (
@@ -52,21 +50,8 @@ export default function HomeView({ lang = "id" }) {
       </section>
 
       <section>
-        <div className="mem-head">
-          <div>
-            <div className="eyebrow">{L.mem.eyebrow}</div>
-            <h2 className="h2">{L.mem.title}</h2>
-          </div>
-          <div className="mem-growth">
-            <div className="eyebrow">{L.cd.growth}</div>
-            <div className="growth">
-              {hist.map((h) => (
-                <div key={h.year} className="bar" style={{ height: `${Math.round((h.runners / max) * 100)}%` }}><b>{h.runners / 1000}{L.cd.k}</b></div>
-              ))}
-            </div>
-            <div className="yr">{hist.map((h) => <span key={h.year}>{h.year}</span>)}</div>
-          </div>
-        </div>
+        <div className="eyebrow">{L.mem.eyebrow}</div>
+        <h2 className="h2">{L.mem.title}</h2>
         <div className="mem">
           {[["2026", 45000, "jakim-event-2026-night.jpg"], ["2025", 30000, "GALERI%202025.jpg"], ["2024", 15000, "jakim-event-2024.jpg"]].map(([y, n, f]) => (
             <a key={y} href={`https://jakim.id/galeri/${y}`} target="_blank" rel="noopener" style={{ backgroundImage: `url("${IMG}${f}")` }}>

@@ -627,3 +627,37 @@ section { padding:64px 20px; }
   .hero-status .next { display:block; }
   .hero-status .next .pulse { display:inline-block; vertical-align:2px; }
 }
+
+/* navbar responsive v2 — menu lengkap baru dari 1200px; 900–1199 pakai burger */
+.hdr .logo { flex-shrink:0; }
+.hdr .logo img { min-width:0; flex-shrink:0; }
+.mbtn { white-space:nowrap; }
+@media (min-width: 900px) and (max-width: 1199px) {
+  .hdr { display:flex; justify-content:space-between; }
+  .dnav { display:none !important; }
+  .burger { display:flex !important; }
+  .drawer { display:block !important; }
+  .drawer .lang { display:none; }
+}
+
+/* menu HP/tablet v3 — full layar di bawah header, header tetap (logo · Daftar · X) */
+.drawer { left:0; right:0; bottom:0; width:100%; z-index:29; transform:none !important; opacity:0; transition:opacity .2s ease, visibility .2s; padding-bottom:48px; }
+.drawer.open { opacity:1; }
+.drawer .mainnav, .drawer .lang { max-width:640px; padding-left:16px; padding-right:16px; }
+@media (min-width: 900px) { .drawer .mainnav, .drawer .lang { padding-left:40px; padding-right:40px; } }
+.burger span { transition:transform .2s ease, opacity .2s ease; }
+.burger.x span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
+.burger.x span:nth-child(2) { opacity:0; }
+.burger.x span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
+
+/* navbar transparan di hero Home → hijau solid setelah scroll */
+.hdr { transition:background .25s ease, border-color .25s ease; }
+.hdr.clear { background:transparent; border-bottom-color:transparent; }
+.hero { margin-top:calc(-1 * var(--hh, 57px)); }
+.hero::before { content:""; position:absolute; left:0; right:0; top:0; height:180px; background:linear-gradient(180deg, rgba(15,42,34,.8), rgba(15,42,34,0)); z-index:1; pointer-events:none; }
+.hero-img { height:calc(240px + var(--hh, 57px)); }
+@media (min-width: 900px) {
+  .hero { min-height:clamp(620px, 100svh, 840px); }
+  .hero-img { height:auto; }
+  .hero-body { padding-top:calc(48px + var(--hh, 77px)); }
+}

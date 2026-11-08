@@ -46,23 +46,41 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [openIdx, setOpenIdx] = useState(-1);
   const navRef = useRef(null);
+  const hdrRef = useRef(null);
+  const [hh, setHh] = useState(64);
+  const [top, setTop] = useState(true);
   const raw = usePathname() || "/";
   const path = raw.length > 1 ? raw.replace(/\/$/, "") : raw;
   const lang = langFromPath(path);
   const t = T[lang].nav;
   const bare = lang === "en" ? path.replace(/^\/en/, "") || "/" : path;
   useEffect(() => { setOpen(false); setOpenIdx(-1); document.documentElement.lang = lang; }, [path, lang]);
+  // navbar transparan di atas hero (Home), solid setelah scroll
+  const isHome = bare === "/";
+  useEffect(() => {
+    const onScroll = () => setTop(window.scrollY < 40);
+    const onResize = () => { if (hdrRef.current) document.documentElement.style.setProperty("--hh", hdrRef.current.getBoundingClientRect().height + "px"); };
+    onScroll(); onResize();
+    window.addEventListener("scroll", onScroll, { passive: true }); window.addEventListener("resize", onResize);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onResize); };
+  }, [path]);
   useEffect(() => {
     const close = (e) => { if (navRef.current && !navRef.current.contains(e.target)) setOpenIdx(-1); };
     const esc = (e) => { if (e.key === "Escape") setOpenIdx(-1); };
     document.addEventListener("click", close); document.addEventListener("keydown", esc);
     return () => { document.removeEventListener("click", close); document.removeEventListener("keydown", esc); };
   }, []);
-  useEffect(() => { document.body.style.overflow = open ? "hidden" : ""; }, [open]);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    if (open && hdrRef.current) setHh(hdrRef.current.getBoundingClientRect().height);
+    const esc = (e) => { if (e.key === "Escape") setOpen(false); };
+    if (open) document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
+  }, [open]);
 
   return (
     <>
-      <header className="hdr">
+      <header className={`hdr ${isHome && top && !open && openIdx < 0 ? "clear" : ""}`} ref={hdrRef}>
         <Link className="logo" href={href(lang, "/")} aria-label="JAKIM 2027">
           <img src={IMG + "Logo%20JAKIM%202027%20v2.png"} alt="Jakarta International Marathon 2027" />
         </Link>
@@ -79,17 +97,13 @@ export default function Header() {
         <div className="hdr-r">
           <LangSwitch path={path} lang={lang} />
           <Link className="btn btn-gold btn-sm" href={href(lang, "/daftar")}>{t.cta}</Link>
-          <button className="burger" aria-label={t.menuOpen} aria-expanded={open} onClick={() => setOpen(true)}>
+          <button className={`burger ${open ? "x" : ""}`} aria-label={open ? t.menuClose : t.menuOpen} aria-expanded={open} aria-controls="menu-drawer" onClick={() => setOpen(!open)}>
             <span></span><span></span><span></span>
           </button>
         </div>
       </header>
 
-      <nav className={`drawer ${open ? "open" : ""}`} aria-hidden={!open}>
-        <div className="drawer-top">
-          <Link className="logo" href={href(lang, "/")}><img src={IMG + "Logo%20JAKIM%202027%20v2.png"} alt="" style={{ height: 34 }} /></Link>
-          <button className="close" aria-label={t.menuClose} onClick={() => setOpen(false)}>✕</button>
-        </div>
+      <nav id="menu-drawer" className={`drawer ${open ? "open" : ""}`} aria-hidden={!open} style={{ top: hh }}>
         <div className="mainnav acc">
           {MENU.map((g) => (
             <details key={g.label}>
@@ -103,7 +117,6 @@ export default function Header() {
           ))}
         </div>
         <div className="lang"><LangSwitch path={path} lang={lang} /></div>
-        <Link className="btn btn-gold" href={href(lang, "/daftar")}>{t.ctaLong}</Link>
       </nav>
     </>
   );
